@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "345351614755",
-    "project_id": "food-app-645f6",
-    "storage_bucket": "food-app-645f6.appspot.com"
+    "project_number": "120527458326",
+    "project_id": "canteeen-5aae5",
+    "storage_bucket": "canteeen-5aae5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:345351614755:android:9ef1cfce138fcb16a61c96",
+        "mobilesdk_app_id": "1:120527458326:android:c84decbab9343985706537",
         "android_client_info": {
-          "package_name": "com.example.canteen_app"
+          "package_name": "com.ajay.canteen_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "345351614755-7t5ngrsfkbaut9t7tn0ue4rdcn0fd7aq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.canteen_app",
-            "certificate_hash": "0fd96d5a1c46c9aa5f1b363bda28db06b3c3db78"
-          }
-        },
-        {
-          "client_id": "345351614755-guoot6fr2b8b2l84adbqusfsfgoum6kl.apps.googleusercontent.com",
+          "client_id": "120527458326-mteqosg13jimokf35bv945fa9vr560r7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBIF3gDkk5yZz_pIIshGnzCY8VG1homgm4"
+          "current_key": "AIzaSyDXgfzTL51Atgh2Rr7JDwZb6Cbl0qW6bbI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "345351614755-guoot6fr2b8b2l84adbqusfsfgoum6kl.apps.googleusercontent.com",
+              "client_id": "120527458326-mteqosg13jimokf35bv945fa9vr560r7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
