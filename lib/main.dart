@@ -1,21 +1,29 @@
-import 'package:canteen_app/screens/home/home_screen.dart';
+import 'package:canteen_app/auth/sign_in.dart';
+import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/google_sign_in.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  // ignore: prefer_const_constructors
+  runApp(MyApp());
 }
 
+// ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => GoogleSignInProvider(),
+        child: MaterialApp(
+          theme: ThemeData(
+              primaryColor: primaryColor,
+              scaffoldBackgroundColor: scaffoldBackgroundColor),
+          debugShowCheckedModeBanner: false,
+          home: SignIn(),
+        ),
+      );
 }
