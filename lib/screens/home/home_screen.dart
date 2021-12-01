@@ -4,6 +4,7 @@ import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/product_overview/product_overview.dart';
 import 'package:canteen_app/screens/home/drawer_side.dart';
 import 'package:canteen_app/screens/home/singal_product.dart';
+import 'package:canteen_app/search/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Herbs Seasonings'),
+              Text('Today"s Food'),
               Text(
                 'view all',
                 style: TextStyle(color: Colors.grey),
@@ -252,8 +253,19 @@ class HomeScreen extends StatelessWidget {
         actions: [
           CircleAvatar(
             radius: 12,
-            backgroundColor: primaryColor,
-            child: Icon(Icons.search, size: 17, color: textColor),
+            backgroundColor: Color(0xffd6d382),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Search(),
+                ));
+              },
+              icon: Icon(
+                Icons.search,
+                size: 17,
+                color: textColor,
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
