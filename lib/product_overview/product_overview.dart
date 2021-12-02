@@ -10,8 +10,12 @@ enum SinginCharacter { fill, outline }
 class ProductOverview extends StatefulWidget {
   final String productName;
   final String productImage;
+  final int productPrice;
   // ignore: use_key_in_widget_constructors, prefer_const_constructors_in_immutables
-  ProductOverview({required this.productImage, required this.productName});
+  ProductOverview(
+      {required this.productImage,
+      required this.productName,
+      required this.productPrice});
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -140,7 +144,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                                 ),
                               ],
                             ),
-                            Text("RS 200"),
+                            Text("RS${widget.productPrice}"),
                             Container(
                               padding: EdgeInsets.symmetric(
                                 horizontal: 30,

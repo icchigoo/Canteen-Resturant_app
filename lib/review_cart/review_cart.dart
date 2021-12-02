@@ -42,12 +42,7 @@ class ReviewCart extends StatelessWidget {
           SingleItem(
             isBool: true,
           ),
-          SingleItem(
-            isBool: true,
-          ),
-          SingleItem(
-            isBool: true,
-          ),
+
           SingleItem(
             isBool: true,
           ),

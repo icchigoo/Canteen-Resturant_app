@@ -2,16 +2,23 @@
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/product_overview/product_overview.dart';
+import 'package:canteen_app/providers/product_provider.dart';
 import 'package:canteen_app/screens/home/drawer_side.dart';
 import 'package:canteen_app/screens/home/singal_product.dart';
 import 'package:canteen_app/search/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  // ignore: unused_element
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late ProductProvider productProvider;
   Widget _buildTodayProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,56 +39,59 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            children: productProvider.getTodayproductDataList.map(
+              (todayproductData) {
+                return SingalProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productPrice: todayproductData.productPrice,
+                          productName: todayproductData.productName,
+                          productImage: todayproductData.productImage,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-            ],
+                    );
+                  },
+                  productprice: todayproductData.productPrice,
+                  productImage: todayproductData.productImage,
+                  productName: todayproductData.productName,
+                );
+              },
+            ).toList(),
+
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
           ),
         ),
       ],
@@ -108,56 +118,75 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            children: productProvider.getTodayproductDataList.map(
+              (todayproductData) {
+                return SingalProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productPrice: todayproductData.productPrice,
+                          productName: todayproductData.productName,
+                          productImage: todayproductData.productImage,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-            ],
+                    );
+                  },
+                  productprice: todayproductData.productPrice,
+                  productImage: todayproductData.productImage,
+                  productName: todayproductData.productName,
+                );
+              },
+            ).toList(),
+
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
           ),
         ),
       ],
@@ -184,56 +213,75 @@ class HomeScreen extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            children: productProvider.getTodayproductDataList.map(
+              (todayproductData) {
+                return SingalProduct(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ProductOverview(
+                          productPrice: todayproductData.productPrice,
+                          productName: todayproductData.productName,
+                          productImage: todayproductData.productImage,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-              SingalProduct(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ProductOverview(
-                        productName: "Burger",
-                        productImage:
-                            "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-                      ),
-                    ),
-                  );
-                },
-                productImage:
-                    'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-                productName: "Burger",
-              ),
-            ],
+                    );
+                  },
+                  productprice: todayproductData.productPrice,
+                  productImage: todayproductData.productImage,
+                  productName: todayproductData.productName,
+                );
+              },
+            ).toList(),
+
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
+            // SingalProduct(
+            //   onTap: () {
+            //     Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => ProductOverview(
+            //           productName: "Burger",
+            //           productImage:
+            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   productImage:
+            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
+            //   productName: "Burger",
+            // ),
           ),
         ),
       ],
@@ -241,7 +289,16 @@ class HomeScreen extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.fatchTodayProductData();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    productProvider = Provider.of(context);
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(

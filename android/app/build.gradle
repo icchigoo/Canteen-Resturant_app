@@ -47,6 +47,7 @@ android {
         applicationId "com.ajay.canteen_app"
         minSdkVersion 21
         targetSdkVersion 30
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
