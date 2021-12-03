@@ -129,7 +129,7 @@ class _SignInState extends State<SignIn> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage('assets/background.png')),
+              fit: BoxFit.cover, image: AssetImage('assets/background.jpg')),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -176,17 +176,18 @@ class _SignInState extends State<SignIn> {
                     ],
                   ),
                   Column(
+                    // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       Text(
                         'By signing in you are agreeing to our',
                         style: TextStyle(
-                          color: Colors.grey[800],
+                          color: Colors.white,
                         ),
                       ),
                       Text(
                         'Terms and Pricacy Policy',
                         style: TextStyle(
-                          color: Colors.grey[800],
+                          color: Colors.white,
                         ),
                       ),
                     ],

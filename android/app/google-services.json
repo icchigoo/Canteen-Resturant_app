@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:120527458326:android:c84decbab9343985706537",
+        "mobilesdk_app_id": "1:120527458326:android:bcaa44b417f3f088706537",
         "android_client_info": {
           "package_name": "com.ajay.canteen_app"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "120527458326-n27phgobe9mq2jubp2epd2kmq075pmk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ajay.canteen_app",
+            "certificate_hash": "0fd96d5a1c46c9aa5f1b363bda28db06b3c3db78"
+          }
+        },
         {
           "client_id": "120527458326-mteqosg13jimokf35bv945fa9vr560r7.apps.googleusercontent.com",
           "client_type": 3

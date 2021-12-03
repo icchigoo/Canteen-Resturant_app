@@ -51,12 +51,6 @@ class Search extends StatelessWidget {
           SingleItem(
             isBool: false,
           ),
-          SingleItem(
-            isBool: false,
-          ),
-          SingleItem(
-            isBool: false,
-          ),
         ],
       ),
     );
