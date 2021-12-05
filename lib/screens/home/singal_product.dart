@@ -2,15 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-// class SingalProduct extends StatelessWidget {
-//   //const ({ Key? key }) : super(key: key);
-//   final String productImage;
-//   final String productName;
-//   final Function onTap;
-//   SingalProduct({required this.productImage,
-//       required this.productName,
-//       required this.onTap});
-
 class SingalProduct extends StatelessWidget {
   final String productImage;
   final String productName;
@@ -33,7 +24,7 @@ class SingalProduct extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.symmetric(horizontal: 5),
-            height: 290,
+            height: 225,
             width: 170,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -54,7 +45,7 @@ class SingalProduct extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 1,
@@ -82,12 +73,12 @@ class SingalProduct extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Container(
-                                padding: EdgeInsets.only(left: 5),
+                                padding: EdgeInsets.only(left: 2),
                                 height: 30,
-                                width: 50,
+                                width: 60,
                                 decoration: BoxDecoration(
                                   border: Border.all(),
-                                  color: Colors.green,
+                                  color: Colors.white54,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 // ignore: prefer_const_literals_to_create_immutables
@@ -111,15 +102,15 @@ class SingalProduct extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              width: 5,
+                              width: 2,
                             ),
                             Expanded(
                               child: Container(
                                 height: 30,
-                                width: 50,
+                                width: 5,
                                 decoration: BoxDecoration(
                                   border: Border.all(),
-                                  color: Colors.green,
+                                  color: Colors.white54,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 // ignore: prefer_const_literals_to_create_immutables

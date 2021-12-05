@@ -4,23 +4,27 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 class ProductProvider with ChangeNotifier {
+  late ProductModel productModel;
+  productModels(QueryDocumentSnapshot element) {
+    productModel = ProductModel(
+      productPrice: element.get("productPrice"),
+      productName: element.get("productName"),
+      productImage: element.get("productImage"),
+    );
+  }
+
+  ////////////////////////today product//////////////////
   // ignore: non_constant_identifier_names
   List<ProductModel> TodayProductList = [];
-  late ProductModel productModel;
 
   fatchTodayProductData() async {
     List<ProductModel> newList = [];
     QuerySnapshot value =
-        await FirebaseFirestore.instance.collection("TodayProduct").get();
+        await FirebaseFirestore.instance.collection("todayProduct").get();
     value.docs.forEach(
       (element) {
-        productModel = ProductModel(
-          productImage: element.get("productImage"),
-          productName: element.get("productName"),
-          productPrice: element.get("productPrice"),
-          productId: '',
-          productUnit: [],
-        );
+        productModels(element);
+
         newList.add(productModel);
       },
     );
@@ -30,5 +34,49 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> get getTodayproductDataList {
     return TodayProductList;
+  }
+
+/////////////////////////////Drink product//////////////////////////
+  List<ProductModel> drinkProductList = [];
+
+  fatchdrinkProductData() async {
+    List<ProductModel> newList = [];
+    QuerySnapshot value =
+        await FirebaseFirestore.instance.collection("drinkProduct").get();
+    value.docs.forEach(
+      (element) {
+        productModels(element);
+
+        newList.add(productModel);
+      },
+    );
+    drinkProductList = newList;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getdrinkproductDataList {
+    return drinkProductList;
+  }
+
+////////////////////////////////Famous product//////////////////////
+  List<ProductModel> famousProductList = [];
+
+  fatchfamousProductData() async {
+    List<ProductModel> newList = [];
+    QuerySnapshot value =
+        await FirebaseFirestore.instance.collection("famousProduct").get();
+    value.docs.forEach(
+      (element) {
+        productModels(element);
+
+        newList.add(productModel);
+      },
+    );
+    famousProductList = newList;
+    notifyListeners();
+  }
+
+  List<ProductModel> get getfamousproductDataList {
+    return famousProductList;
   }
 }

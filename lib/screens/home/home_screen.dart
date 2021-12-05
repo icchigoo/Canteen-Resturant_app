@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -33,6 +33,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 'view all',
                 style: TextStyle(color: Colors.grey),
               ),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.of(context).push(MaterialPageRoute(
+              //       builder: (context) => Search(
+              //         search: productProvider.getTodayproductDataList,
+              //       ),
+              //     ));
+              //   },
+              //   child: Text(
+              //     'view all',
+              //     style: TextStyle(color: Colors.grey),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -59,39 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ).toList(),
-
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
           ),
         ),
       ],
@@ -103,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -112,13 +92,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 'view all',
                 style: TextStyle(color: Colors.grey),
               ),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.of(context).push(MaterialPageRoute(
+              //       builder: (context) => Search(
+              //         search: productProvider.getdrinkproductDataList,
+              //       ),
+              //     ));
+              //   },
+              //   child: Text(
+              //     'view all',
+              //     style: TextStyle(color: Colors.grey),
+              //   ),
+              // ),
             ],
           ),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: productProvider.getTodayproductDataList.map(
+            children: productProvider.getdrinkproductDataList.map(
               (todayproductData) {
                 return SingalProduct(
                   onTap: () {
@@ -138,55 +131,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ).toList(),
-
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
           ),
         ),
       ],
@@ -198,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -207,13 +151,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 'view all',
                 style: TextStyle(color: Colors.grey),
               ),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.of(context).push(MaterialPageRoute(
+              //       builder: (context) => Search(
+              //         search: productProvider.famousProductList,
+              //       ),
+              //     ));
+              //   },
+              //   child: Text(
+              //     'view all',
+              //     style: TextStyle(color: Colors.grey),
+              //   ),
+              // ),
             ],
           ),
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: productProvider.getTodayproductDataList.map(
+            children: productProvider.getfamousproductDataList.map(
               (todayproductData) {
                 return SingalProduct(
                   onTap: () {
@@ -233,55 +190,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ).toList(),
-
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
-            // SingalProduct(
-            //   onTap: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => ProductOverview(
-            //           productName: "Burger",
-            //           productImage:
-            //               "https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png",
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   productImage:
-            //       'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png',
-            //   productName: "Burger",
-            // ),
           ),
         ),
       ],
@@ -292,6 +200,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     ProductProvider productProvider = Provider.of(context, listen: false);
     productProvider.fatchTodayProductData();
+    productProvider.fatchdrinkProductData();
+    productProvider.fatchfamousProductData();
 
     super.initState();
   }
@@ -309,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           CircleAvatar(
-            radius: 12,
+            radius: 10,
             backgroundColor: Color(0xffd6d382),
             child: IconButton(
               onPressed: () {
@@ -317,6 +227,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context) => Search(),
                 ));
               },
+              // onPressed: () {
+              //   Navigator.of(context).push(MaterialPageRoute(
+              //     builder: (context) => Search(
+              //       search: productProvider.getTodayproductDataList,
+              //     ),
+              //   ));
+              // },
               icon: Icon(
                 Icons.search,
                 size: 17,
@@ -363,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const EdgeInsets.only(right: 150, bottom: 10),
                             child: Container(
                               height: 50,
-                              width: 100,
+                              width: 80,
                               decoration: BoxDecoration(
                                 color: Color(0xffd1ad17),
                                 borderRadius: BorderRadius.only(
@@ -417,7 +334,6 @@ class _HomeScreenState extends State<HomeScreen> {
             _buildTodayProduct(context),
             _buildDrinkProduct(context),
             _buildVegProduct(context),
-            _buildTodayProduct(context)
           ],
         ),
       ),

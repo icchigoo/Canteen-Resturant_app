@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class SingleItem extends StatelessWidget {
   bool isBool = false;
+
   SingleItem({required this.isBool});
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class SingleItem extends StatelessWidget {
                   height: 100,
                   child: Center(
                     child: Image.network(
-                        'https://www.freepnglogos.com/uploads/burger-png/burger-png-png-images-yellow-images-12.png'),
+                        "https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="),
                   ),
                 ),
               ),
@@ -36,12 +37,12 @@ class SingleItem extends StatelessWidget {
                         children: [
                           // ignore: prefer_const_constructors
                           Text(
-                            "productName",
+                            "Burger",
                             style: TextStyle(
                                 color: textColor, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "Rs 200/ chicken",
+                            "RS 200",
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -85,7 +86,7 @@ class SingleItem extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  height: 100,
+                  height: 130,
                   padding: isBool == false
                       ? EdgeInsets.symmetric(horizontal: 15, vertical: 32)
                       : EdgeInsets.only(left: 15, right: 15),
@@ -104,7 +105,7 @@ class SingleItem extends StatelessWidget {
                                 Icon(
                                   Icons.add,
                                   color: primaryColor,
-                                  size: 20,
+                                  size: 25,
                                 ),
                                 Text(
                                   "ADD",
