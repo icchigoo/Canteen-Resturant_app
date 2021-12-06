@@ -5,12 +5,15 @@ import 'package:flutter/cupertino.dart';
 
 class ProductProvider with ChangeNotifier {
   late ProductModel productModel;
+
+  List<ProductModel> search = [];
   productModels(QueryDocumentSnapshot element) {
     productModel = ProductModel(
       productPrice: element.get("productPrice"),
       productName: element.get("productName"),
       productImage: element.get("productImage"),
     );
+    search.add(productModel);
   }
 
   ////////////////////////today product//////////////////
@@ -78,5 +81,11 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> get getfamousproductDataList {
     return famousProductList;
+  }
+
+  //////////////////search return////////////////////////
+
+  List<ProductModel> get getAllProductSearch {
+    return search;
   }
 }

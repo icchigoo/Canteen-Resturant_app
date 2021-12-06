@@ -2,6 +2,7 @@ import 'package:canteen_app/auth/sign_in.dart';
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/product_provider.dart';
 import 'package:canteen_app/screens/home/home_screen.dart';
+// import 'package:canteen_app/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
             primaryColor: primaryColor,
             scaffoldBackgroundColor: scaffoldBackgroundColor),
         debugShowCheckedModeBanner: false,
-        home: SignIn(),
+        home: HomeScreen(),
       ),
     );
   }

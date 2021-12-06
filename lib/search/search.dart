@@ -1,32 +1,57 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:canteen_app/models/product_model.dart';
 import 'package:canteen_app/widgets/single_item.dart';
 import 'package:flutter/material.dart';
 
-// ignore: use_key_in_widget_constructors
-class Search extends StatelessWidget {
+class Search extends StatefulWidget {
+  final List<ProductModel> search;
+  // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+  Search({required this.search});
+  @override
+  _SearchState createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  String query = "";
+
+  searchItem(String query) {
+    List<ProductModel> searchFood = widget.search.where((element) {
+      return element.productName.toLowerCase().contains(query);
+    }).toList();
+    return searchFood;
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       appBar: AppBar(
         title: Text("Search"),
-        // ignore: prefer_const_literals_to_create_immutables
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.menu_rounded),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.sort),
+            ),
           ),
         ],
       ),
       body: ListView(
         children: [
           ListTile(
-            title: Text("Item"),
+            title: Text("Items"),
           ),
           Container(
             height: 52,
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
+              onChanged: (value) {
+                setState(() {
+                  query = value;
+                });
+              },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -34,7 +59,7 @@ class Search extends StatelessWidget {
                 ),
                 fillColor: Color(0xffc2c2c2),
                 filled: true,
-                hintText: "Search for foods in the menu",
+                hintText: "Search for items in the store",
                 suffixIcon: Icon(Icons.search),
               ),
             ),
@@ -42,15 +67,16 @@ class Search extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          SingleItem(
-            isBool: false,
-          ),
-          SingleItem(
-            isBool: false,
-          ),
-          SingleItem(
-            isBool: false,
-          ),
+          Column(
+            children: _searchItem.map((data) {
+              return SingleItem(
+                isBool: false,
+                productprice: data.productPrice,
+                productName: data.productName,
+                prodcutImage: data.productImage,
+              );
+            }).toList(),
+          )
         ],
       ),
     );

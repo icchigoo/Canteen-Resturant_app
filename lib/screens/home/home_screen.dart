@@ -29,23 +29,23 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Today"s Food'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
-              ),
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.of(context).push(MaterialPageRoute(
-              //       builder: (context) => Search(
-              //         search: productProvider.getTodayproductDataList,
-              //       ),
-              //     ));
-              //   },
-              //   child: Text(
-              //     'view all',
-              //     style: TextStyle(color: Colors.grey),
-              //   ),
+              // Text(
+              //   'view all',
+              //   style: TextStyle(color: Colors.grey),
               // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Search(
+                      search: productProvider.getTodayproductDataList,
+                    ),
+                  ));
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
             ],
           ),
         ),
@@ -88,23 +88,23 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Drinks Special'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
-              ),
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.of(context).push(MaterialPageRoute(
-              //       builder: (context) => Search(
-              //         search: productProvider.getdrinkproductDataList,
-              //       ),
-              //     ));
-              //   },
-              //   child: Text(
-              //     'view all',
-              //     style: TextStyle(color: Colors.grey),
-              //   ),
+              // Text(
+              //   'view all',
+              //   style: TextStyle(color: Colors.grey),
               // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Search(
+                      search: productProvider.getdrinkproductDataList,
+                    ),
+                  ));
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
             ],
           ),
         ),
@@ -147,23 +147,23 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Drinks Special'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
-              ),
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.of(context).push(MaterialPageRoute(
-              //       builder: (context) => Search(
-              //         search: productProvider.famousProductList,
-              //       ),
-              //     ));
-              //   },
-              //   child: Text(
-              //     'view all',
-              //     style: TextStyle(color: Colors.grey),
-              //   ),
+              // Text(
+              //   'view all',
+              //   style: TextStyle(color: Colors.grey),
               // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Search(
+                      search: productProvider.famousProductList,
+                    ),
+                  ));
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
             ],
           ),
         ),
@@ -222,18 +222,18 @@ class _HomeScreenState extends State<HomeScreen> {
             radius: 10,
             backgroundColor: Color(0xffd6d382),
             child: IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Search(),
-                ));
-              },
               // onPressed: () {
               //   Navigator.of(context).push(MaterialPageRoute(
-              //     builder: (context) => Search(
-              //       search: productProvider.getTodayproductDataList,
-              //     ),
+              //     builder: (context) => Search(),
               //   ));
               // },
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Search(
+                    search: productProvider.getAllProductSearch,
+                  ),
+                ));
+              },
               icon: Icon(
                 Icons.search,
                 size: 17,

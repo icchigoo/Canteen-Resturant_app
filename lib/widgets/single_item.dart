@@ -1,12 +1,19 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable, use_key_in_widget_constructors, sized_box_for_whitespace
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:flutter/material.dart';
 
 class SingleItem extends StatelessWidget {
   bool isBool = false;
+  String prodcutImage;
+  String productName;
+  int productprice;
 
-  SingleItem({required this.isBool});
+  SingleItem(
+      {required this.isBool,
+      required this.prodcutImage,
+      required this.productName,
+      required this.productprice});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,8 +26,7 @@ class SingleItem extends StatelessWidget {
                 child: Container(
                   height: 100,
                   child: Center(
-                    child: Image.network(
-                        "https://media.istockphoto.com/photos/juicy-hamburger-on-white-background-picture-id1206323282?k=20&m=1206323282&s=612x612&w=0&h=yatlq6BHRCCvoTzFZLSwaJc0O8Quct_tRPWtH0dj9Fc="),
+                    child: Image.network(prodcutImage),
                   ),
                 ),
               ),
@@ -37,12 +43,12 @@ class SingleItem extends StatelessWidget {
                         children: [
                           // ignore: prefer_const_constructors
                           Text(
-                            "Burger",
+                            productName,
                             style: TextStyle(
                                 color: textColor, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "RS 200",
+                            "$productprice\$",
                             style: TextStyle(
                               color: Colors.grey,
                             ),
@@ -90,6 +96,7 @@ class SingleItem extends StatelessWidget {
                   padding: isBool == false
                       ? EdgeInsets.symmetric(horizontal: 15, vertical: 32)
                       : EdgeInsets.only(left: 15, right: 15),
+                  // ignore: unrelated_type_equality_checks
                   child: EdgeInsets == false
                       ? Container(
                           height: 25,
