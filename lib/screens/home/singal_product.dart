@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:canteen_app/widgets/count.dart';
 import 'package:flutter/material.dart';
 
 class SingalProduct extends StatelessWidget {
@@ -74,8 +75,8 @@ class SingalProduct extends StatelessWidget {
                             Expanded(
                               child: Container(
                                 padding: EdgeInsets.only(left: 2),
-                                height: 30,
-                                width: 60,
+                                height: 25,
+                                width: 50,
                                 decoration: BoxDecoration(
                                   border: Border.all(),
                                   color: Colors.white54,
@@ -104,42 +105,9 @@ class SingalProduct extends StatelessWidget {
                             SizedBox(
                               width: 2,
                             ),
-                            Expanded(
-                              child: Container(
-                                height: 30,
-                                width: 5,
-                                decoration: BoxDecoration(
-                                  border: Border.all(),
-                                  color: Colors.white54,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                // ignore: prefer_const_literals_to_create_immutables
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    Icon(
-                                      Icons.remove,
-                                      size: 15,
-                                      color: Color(0xffd0b84c),
-                                    ),
-                                    Text(
-                                      '1',
-                                      style: TextStyle(
-                                        color: Color(0xffd0b84c),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.add,
-                                      color: Color(0xffd0b84c),
-                                      size: 15,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            // Expanded(
+                            //   child:
+                            Count(),
                           ],
                         ),
                       ],
