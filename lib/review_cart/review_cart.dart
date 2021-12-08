@@ -9,10 +9,46 @@ import 'package:provider/provider.dart';
 
 // ignore: use_key_in_widget_constructors
 class ReviewCart extends StatelessWidget {
+  late ReviewCartProvider reviewCartProvider;
+  showAlertDialog(BuildContext context, ReviewCartModel delete) {
+    // set up the buttons
+    Widget cancelButton = TextButton(
+      child: Text("No"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+    Widget continueButton = TextButton(
+      child: Text("Yes"),
+      onPressed: () {
+        reviewCartProvider.reviewCartDataDelete(delete.cartId);
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Cart Product"),
+      content: Text("are you devete on cartProduct "),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    ReviewCartProvider reviewCartProvider = Provider.of(context);
+    reviewCartProvider = Provider.of(context);
     reviewCartProvider.getReviewCartData();
     return Scaffold(
       bottomNavigationBar: ListTile(
@@ -62,6 +98,9 @@ class ReviewCart extends StatelessWidget {
                       productprice: data.cartPrice,
                       productId: data.cartId,
                       productQuantity: data.cartQuantity,
+                      onDelete: () {
+                        showAlertDialog(context, data);
+                      },
                     ),
                   ],
                 );

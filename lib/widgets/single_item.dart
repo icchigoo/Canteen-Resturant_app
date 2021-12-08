@@ -10,14 +10,17 @@ class SingleItem extends StatelessWidget {
   int productprice;
   String productId;
   int productQuantity;
+  VoidCallback onDelete;
 
-  SingleItem(
-      {required this.isBool,
-      required this.prodcutImage,
-      required this.productName,
-      required this.productprice,
-      required this.productId,
-      required this.productQuantity});
+  SingleItem({
+    required this.isBool,
+    required this.prodcutImage,
+    required this.productName,
+    required this.productprice,
+    required this.productId,
+    required this.productQuantity,
+    required this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -130,10 +133,17 @@ class SingleItem extends StatelessWidget {
                           ),
                         )
                       : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.delete, size: 30, color: Colors.black54),
+                            InkWell(
+                                onTap: onDelete,
+                                child: Icon(
+                                  Icons.delete,
+                                  size: 30,
+                                  color: Colors.black54,
+                                )),
                             SizedBox(
-                              height: 5,
+                              height: 3,
                             ),
                             Container(
                               height: 25,

@@ -5,9 +5,7 @@ import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:canteen_app/providers/user_provider.dart';
 import 'package:canteen_app/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
