@@ -66,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  productId: todayproductData.productId,
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
@@ -125,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  productId: todayproductData.productId,
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
@@ -184,6 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
+                  productId: todayproductData.productId,
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,

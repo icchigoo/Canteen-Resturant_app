@@ -1,9 +1,23 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/models/review_cart_model.dart';
+import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Count extends StatefulWidget {
+  late String productName;
+  late String productImage;
+  late String productId;
+  late int productPrice;
+
+  Count(
+      {required this.productName,
+      required this.productImage,
+      required this.productId,
+      required this.productPrice});
+
   @override
   _CountState createState() => _CountState();
 }
@@ -14,6 +28,7 @@ class _CountState extends State<Count> {
 
   @override
   Widget build(BuildContext context) {
+    ReviewCartProvider reviewCarProvider = Provider.of(context);
     return Container(
         height: 25,
         width: 50,
@@ -75,6 +90,13 @@ class _CountState extends State<Count> {
                     setState(() {
                       isTrue = true;
                     });
+                    reviewCarProvider.addReviewCartData(
+                      cartId: widget.productId,
+                      cartImage: widget.productImage,
+                      cartName: widget.productName,
+                      cartPrice: widget.productPrice,
+                      cartQuantity: count,
+                    );
                   },
                   child: Text(
                     "Add",

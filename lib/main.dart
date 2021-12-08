@@ -1,6 +1,7 @@
 import 'package:canteen_app/auth/sign_in.dart';
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/product_provider.dart';
+import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:canteen_app/providers/user_provider.dart';
 import 'package:canteen_app/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,7 +30,10 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserProvider>(
           create: (context) => UserProvider(),
-        )
+        ),
+        ChangeNotifierProvider<ReviewCartProvider>(
+          create: (context) => ReviewCartProvider(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(

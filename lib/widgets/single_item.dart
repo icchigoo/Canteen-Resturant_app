@@ -8,12 +8,17 @@ class SingleItem extends StatelessWidget {
   String prodcutImage;
   String productName;
   int productprice;
+  String productId;
+  int productQuantity;
 
   SingleItem(
       {required this.isBool,
       required this.prodcutImage,
       required this.productName,
-      required this.productprice});
+      required this.productprice,
+      required this.productId,
+      required this.productQuantity});
+
   @override
   Widget build(BuildContext context) {
     return Column(

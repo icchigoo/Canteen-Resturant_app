@@ -7,6 +7,7 @@ class SingalProduct extends StatelessWidget {
   final String productImage;
   final String productName;
   final int productprice;
+  final String productId;
 
   final VoidCallback onTap;
 
@@ -15,6 +16,7 @@ class SingalProduct extends StatelessWidget {
     required this.productName,
     required this.onTap,
     required this.productprice,
+    required this.productId,
   });
 
   @override
@@ -107,7 +109,12 @@ class SingalProduct extends StatelessWidget {
                             ),
                             // Expanded(
                             //   child:
-                            Count(),
+                            Count(
+                              productId: productId,
+                              productImage: productImage,
+                              productName: productName,
+                              productPrice: productprice,
+                            ),
                           ],
                         ),
                       ],
