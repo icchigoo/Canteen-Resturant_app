@@ -1,8 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/providers/product_provider.dart';
+import 'package:canteen_app/providers/wish_list_provider.dart';
+import 'package:canteen_app/screens/wishList/wish_list.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
+
+import 'package:provider/provider.dart';
 
 enum SinginCharacter { fill, outline }
 
@@ -11,11 +18,16 @@ class ProductOverview extends StatefulWidget {
   final String productName;
   final String productImage;
   final int productPrice;
+  // final String productQuantity;
+  final String productId;
   // ignore: use_key_in_widget_constructors, prefer_const_constructors_in_immutables
-  ProductOverview(
-      {required this.productImage,
-      required this.productName,
-      required this.productPrice});
+  ProductOverview({
+    required this.productImage,
+    required this.productName,
+    required this.productPrice,
+    required this.productId,
+    // required this.productQuantity,
+  });
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -31,54 +43,95 @@ class _ProductOverviewState extends State<ProductOverview> {
     required Color color,
     required String title,
     required IconData iconData,
+    required VoidCallback onTap,
   }) {
     return Expanded(
       // child: GestureDetector(
       //onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(20),
-        color: backgroundColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              iconData,
-              size: 20,
-              color: iconColor,
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              title,
-              style: TextStyle(color: color),
-            ),
-          ],
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: EdgeInsets.all(20),
+          color: backgroundColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                iconData,
+                size: 20,
+                color: iconColor,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                title,
+                style: TextStyle(color: color),
+              ),
+            ],
+          ),
         ),
       ),
       // ),
     );
   }
 
+  bool wishListBool = false;
+
+  getWishListBool() {
+    FirebaseFirestore.instance
+        .collection("WishList")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection("YourWishList")
+        .doc(widget.productId)
+        .get()
+        .then((value) => {
+              if (mounted)
+                {
+                  setState(() {
+                    wishListBool = value.get("wishList");
+                  })
+                }
+            });
+  }
+
   @override
   Widget build(BuildContext context) {
+    WishListProvider wishListProvider = Provider.of(context);
+    getWishListBool();
     return Scaffold(
         bottomNavigationBar: Row(
           children: [
             bonntonNavigatorBar(
-              backgroundColor: textColor,
-              color: Colors.white70,
-              iconColor: Colors.grey,
-              title: "add TO whishlist",
-              iconData: Icons.favorite_outline,
-            ),
+                backgroundColor: textColor,
+                color: Colors.white70,
+                iconColor: Colors.orange,
+                title: "add TO whishlist",
+                iconData: wishListBool == false
+                    ? Icons.favorite_outline
+                    : Icons.favorite,
+                onTap: () {
+                  setState(() {
+                    wishListBool = !wishListBool;
+                  });
+                  if (wishListBool == true) {
+                    wishListProvider.addWishListData(
+                        wishListId: widget.productId,
+                        wishListImage: widget.productImage,
+                        wishListName: widget.productName,
+                        wishListPrice: widget.productPrice,
+                        wishListQuantity: 2);
+                  } else {
+                    wishListProvider.deleteWishtList(widget.productId);
+                  }
+                }),
             bonntonNavigatorBar(
-              backgroundColor: textColor,
-              color: Colors.white70,
-              iconColor: Colors.grey,
-              title: "add TO whishlist",
-              iconData: Icons.favorite_outline,
-            ),
+                backgroundColor: primaryColor,
+                color: Colors.white70,
+                iconColor: Colors.yellow,
+                title: "Go To Cart",
+                iconData: Icons.shop_outlined,
+                onTap: () {}),
           ],
         ),
         appBar: AppBar(

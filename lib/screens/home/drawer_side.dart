@@ -3,6 +3,7 @@
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/review_cart/review_cart.dart';
 import 'package:canteen_app/screens/my_profile/my_profile.dart';
+import 'package:canteen_app/screens/wishList/wish_list.dart';
 import 'package:flutter/material.dart';
 
 class DrawerSide extends StatelessWidget {
@@ -131,7 +132,7 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) => WishList(),
                     ),
                   );
                 }),

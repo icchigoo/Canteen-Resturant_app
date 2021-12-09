@@ -9,7 +9,8 @@ class SingleItem extends StatelessWidget {
   String productName;
   int productprice;
   String productId;
-  int productQuantity;
+  bool wishList = false;
+  // int productQuantity;
   VoidCallback onDelete;
 
   SingleItem({
@@ -18,7 +19,8 @@ class SingleItem extends StatelessWidget {
     required this.productName,
     required this.productprice,
     required this.productId,
-    required this.productQuantity,
+    required this.wishList,
+    //required this.productQuantity,
     required this.onDelete,
   });
 
@@ -132,46 +134,57 @@ class SingleItem extends StatelessWidget {
                             ),
                           ),
                         )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                                onTap: onDelete,
-                                child: Icon(
-                                  Icons.delete,
-                                  size: 30,
-                                  color: Colors.black54,
-                                )),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Container(
-                              height: 25,
-                              width: 70,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(30),
+                      : Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                  onTap: onDelete,
+                                  child: Icon(
+                                    Icons.delete,
+                                    size: 30,
+                                    color: Colors.black54,
+                                  )),
+                              SizedBox(
+                                height: 3,
                               ),
-                              child: Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.add,
-                                      color: primaryColor,
-                                      size: 20,
-                                    ),
-                                    Text(
-                                      "ADD",
-                                      style: TextStyle(
-                                        color: primaryColor,
+                              wishList == false
+                                  ? Container(
+                                      height: 25,
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius: BorderRadius.circular(30),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.remove,
+                                              color: primaryColor,
+                                              size: 20,
+                                            ),
+                                            Text(
+                                              "1",
+                                              style: TextStyle(
+                                                color: primaryColor,
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.add,
+                                              color: primaryColor,
+                                              size: 20,
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  : Container(),
+                            ],
+                          ),
                         ),
                 ),
               ),

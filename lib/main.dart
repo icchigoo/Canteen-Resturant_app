@@ -3,6 +3,7 @@ import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/product_provider.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:canteen_app/providers/user_provider.dart';
+import 'package:canteen_app/providers/wish_list_provider.dart';
 import 'package:canteen_app/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ReviewCartProvider>(
           create: (context) => ReviewCartProvider(),
+        ),
+        ChangeNotifierProvider<WishListProvider>(
+          create: (context) => WishListProvider(),
         ),
       ],
       child: MaterialApp(
