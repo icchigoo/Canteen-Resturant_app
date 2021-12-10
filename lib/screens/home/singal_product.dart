@@ -75,32 +75,63 @@ class SingalProduct extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
-                              child: Container(
-                                padding: EdgeInsets.only(left: 2),
-                                height: 25,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  border: Border.all(),
-                                  color: Colors.white54,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                // ignore: prefer_const_literals_to_create_immutables
-                                child: Row(
+                              child: InkWell(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                      context: context,
+                                      builder: (context) {
+                                        return Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: <Widget>[
+                                            ListTile(
+                                              title: new Text('Small'),
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                            ListTile(
+                                              title: new Text('Medium'),
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                            ListTile(
+                                              title: new Text('Large'),
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                          ],
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.only(left: 2),
+                                  height: 25,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(),
+                                    color: Colors.white54,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
                                   // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    Expanded(
-                                        child: Text(
-                                      'piece',
-                                      style: TextStyle(fontSize: 10),
-                                    )),
-                                    Center(
-                                      child: Icon(
-                                        Icons.arrow_drop_down,
-                                        size: 20,
-                                        color: Colors.yellow,
-                                      ),
-                                    )
-                                  ],
+                                  child: Row(
+                                    // ignore: prefer_const_literals_to_create_immutables
+                                    children: [
+                                      Expanded(
+                                          child: Text(
+                                        'Size',
+                                        style: TextStyle(fontSize: 13),
+                                      )),
+                                      Center(
+                                        child: Icon(
+                                          Icons.arrow_drop_down,
+                                          size: 20,
+                                          color: Colors.yellow,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

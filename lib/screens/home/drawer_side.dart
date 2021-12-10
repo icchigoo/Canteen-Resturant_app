@@ -3,6 +3,7 @@
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/user_provider.dart';
 import 'package:canteen_app/review_cart/review_cart.dart';
+import 'package:canteen_app/screens/home/home_screen.dart';
 import 'package:canteen_app/screens/my_profile/my_profile.dart';
 import 'package:canteen_app/screens/wishList/wish_list.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,7 @@ class _DrawerSideState extends State<DrawerSide> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => ReviewCart(),
+                      builder: (context) => HomeScreen(),
                     ),
                   );
                 }),
