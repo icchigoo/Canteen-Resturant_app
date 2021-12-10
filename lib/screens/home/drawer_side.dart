@@ -1,13 +1,21 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/providers/user_provider.dart';
 import 'package:canteen_app/review_cart/review_cart.dart';
 import 'package:canteen_app/screens/my_profile/my_profile.dart';
 import 'package:canteen_app/screens/wishList/wish_list.dart';
 import 'package:flutter/material.dart';
 
-class DrawerSide extends StatelessWidget {
+class DrawerSide extends StatefulWidget {
+  UserProvider userProvider;
+  DrawerSide({required this.userProvider});
   //const ({ Key? key }) : super(key: key);
+  @override
+  State<DrawerSide> createState() => _DrawerSideState();
+}
+
+class _DrawerSideState extends State<DrawerSide> {
   Widget listTile({
     required String title,
     required IconData iconData,
@@ -28,6 +36,7 @@ class DrawerSide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var userData = widget.userProvider.currentUserData;
     return Drawer(
       child: Container(
         width: 100,
@@ -35,45 +44,36 @@ class DrawerSide extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white54,
-                    radius: 43,
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.yellow,
-                      backgroundImage: NetworkImage(
-                          "https://www.kindpng.com/picc/m/382-3826731_grab-food-logo-png-transparent-png.png"),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.white54,
+                      radius: 43,
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.yellow,
+                        backgroundImage: NetworkImage(userData.userImage ??
+                            "https://www.kindpng.com/picc/m/382-3826731_grab-food-logo-png-transparent-png.png"),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Welcome Guest'),
-                      SizedBox(
-                        height: 7,
-                      ),
-                      Container(
-                        height: 25,
-                        child: OutlineButton(
-                          onPressed: () {},
-                          child: Text("Login"),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(
-                              width: 2,
-                              color: textColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(userData.userName),
+                        // Text(
+                        //   userData.email,
+                        //   overflow: TextOverflow.ellipsis,
+                        // ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             listTile(
@@ -82,7 +82,7 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) => ReviewCart(),
                     ),
                   );
                 }),
@@ -102,7 +102,8 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) =>
+                          MyProfile(userProvider: widget.userProvider),
                     ),
                   );
                 }),
@@ -112,7 +113,7 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) => ReviewCart(),
                     ),
                   );
                 }),
@@ -122,7 +123,7 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) => ReviewCart(),
                     ),
                   );
                 }),
@@ -142,7 +143,7 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) => ReviewCart(),
                     ),
                   );
                 }),
@@ -152,7 +153,7 @@ class DrawerSide extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyProfile(),
+                      builder: (context) => ReviewCart(),
                     ),
                   );
                 }),

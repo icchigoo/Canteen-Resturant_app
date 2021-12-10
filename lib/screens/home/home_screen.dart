@@ -4,7 +4,6 @@ import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/product_overview/product_overview.dart';
 import 'package:canteen_app/providers/product_provider.dart';
 import 'package:canteen_app/providers/user_provider.dart';
-import 'package:canteen_app/review_cart/review_cart.dart';
 import 'package:canteen_app/screens/home/drawer_side.dart';
 import 'package:canteen_app/screens/home/singal_product.dart';
 import 'package:canteen_app/search/search.dart';
@@ -21,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late ProductProvider productProvider;
+
   Widget _buildTodayProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
     UserProvider userProvider = Provider.of(context);
     userProvider.getUserData();
     return Scaffold(
-      drawer: DrawerSide(),
+      drawer: DrawerSide(userProvider: userProvider),
       appBar: AppBar(
         iconTheme: IconThemeData(color: textColor),
         title: Text(
@@ -254,23 +254,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
-                  ),
-                );
-              },
-              child: CircleAvatar(
-                backgroundColor: primaryColor,
-                radius: 12,
-                child: Icon(
-                  Icons.shop,
-                  size: 17,
-                  color: textColor,
-                ),
-              ),
+            child: CircleAvatar(
+              backgroundColor: primaryColor,
+              radius: 12,
+              child: Icon(Icons.camera, size: 17, color: textColor),
             ),
           ),
         ],

@@ -6,19 +6,21 @@ import 'package:flutter/cupertino.dart';
 
 class UserProvider with ChangeNotifier {
   void addUserData({
-    required User currentUser,
-    required String userName,
-    required String userImage,
-    required String userEmail,
+    required User? currentUser,
+    required String? userName,
+    required String? userImage,
+
+    // required String? userEmail,
   }) async {
     await FirebaseFirestore.instance
         .collection("usersData")
-        .doc(currentUser.uid)
+        .doc(currentUser!.uid)
         .set(
       {
         "userName": userName,
-        "userEmail": userEmail,
         "userImage": userImage,
+
+        // "userEmail": userEmail,
         "userUid": currentUser.uid,
       },
     );
@@ -34,7 +36,7 @@ class UserProvider with ChangeNotifier {
         .get();
     if (value.exists) {
       userModel = UserModel(
-        userEmail: value.get("userEmail"),
+        // userEmail: value.get("userEmail"),
         userImage: value.get("userImage"),
         userName: value.get("userName"),
         userUid: value.get("userUid"),

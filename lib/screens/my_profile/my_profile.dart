@@ -1,10 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/providers/user_provider.dart';
 import 'package:canteen_app/screens/home/drawer_side.dart';
 import 'package:flutter/material.dart';
 
-class MyProfile extends StatelessWidget {
+class MyProfile extends StatefulWidget {
+  UserProvider userProvider;
+  MyProfile({required this.userProvider});
+
+  @override
+  State<MyProfile> createState() => _MyProfileState();
+}
+
+class _MyProfileState extends State<MyProfile> {
   @override
   Widget listTile({required IconData icon, required String title}) {
     return Column(
@@ -22,6 +31,7 @@ class MyProfile extends StatelessWidget {
   }
 
   Widget build(BuildContext context) {
+    var userData = widget.userProvider.currentUserData;
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
@@ -35,7 +45,9 @@ class MyProfile extends StatelessWidget {
           ),
         ),
       ),
-      drawer: DrawerSide(),
+      drawer: DrawerSide(
+        userProvider: widget.userProvider,
+      ),
       body: Stack(
         children: [
           Column(children: [
@@ -72,7 +84,7 @@ class MyProfile extends StatelessWidget {
                               // ignore: prefer_const_literals_to_create_immutables
                               children: [
                                 Text(
-                                  "Ajay Chhetri",
+                                  userData.userName,
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -82,7 +94,8 @@ class MyProfile extends StatelessWidget {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text("icchigoo12@gmail.com"),
+                                // text(widget.userData.userEmail),
+                                Text("Sorry Facing error this time"),
                               ],
                             ),
                             CircleAvatar(
@@ -124,7 +137,7 @@ class MyProfile extends StatelessWidget {
               radius: 50,
               backgroundColor: primaryColor,
               child: CircleAvatar(
-                backgroundImage: NetworkImage(
+                backgroundImage: NetworkImage(userData.userImage ??
                     "https://www.kindpng.com/picc/m/382-3826731_grab-food-logo-png-transparent-png.png"),
                 radius: 45,
                 backgroundColor: scaffoldBackgroundColor,

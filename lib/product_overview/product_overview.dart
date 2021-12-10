@@ -3,9 +3,7 @@
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/product_provider.dart';
 import 'package:canteen_app/providers/wish_list_provider.dart';
-import 'package:canteen_app/review_cart/review_cart.dart';
 import 'package:canteen_app/screens/wishList/wish_list.dart';
-import 'package:canteen_app/widgets/count.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -90,12 +88,9 @@ class _ProductOverviewState extends State<ProductOverview> {
         .then((value) => {
               if (mounted)
                 {
-                  if (value.exists)
-                    {
-                      setState(() {
-                        wishListBool = value.get("wishList");
-                      })
-                    }
+                  setState(() {
+                    wishListBool = value.get("wishList");
+                  })
                 }
             });
   }
@@ -136,13 +131,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 iconColor: Colors.yellow,
                 title: "Go To Cart",
                 iconData: Icons.shop_outlined,
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ReviewCart(),
-                    ),
-                  );
-                }),
+                onTap: () {}),
           ],
         ),
         appBar: AppBar(
@@ -209,36 +198,30 @@ class _ProductOverviewState extends State<ProductOverview> {
                               ],
                             ),
                             Text("RS${widget.productPrice}"),
-                            Count(
-                              productId: widget.productId,
-                              productImage: widget.productImage,
-                              productName: widget.productName,
-                              productPrice: widget.productPrice,
-                            ),
-                            // Container(
-                            //   padding: EdgeInsets.symmetric(
-                            //     horizontal: 30,
-                            //     vertical: 10,
-                            //   ),
-                            //   decoration: BoxDecoration(
-                            //     border: Border.all(color: Colors.grey),
-                            //     borderRadius: BorderRadius.circular(30),
-                            //   ),
-                            //   child: Row(
-                            //     mainAxisAlignment: MainAxisAlignment.center,
-                            //     children: [
-                            //       Icon(
-                            //         Icons.add,
-                            //         size: 17,
-                            //         color: primaryColor,
-                            //       ),
-                            //       Text(
-                            //         'ADD',
-                            //         style: TextStyle(color: Colors.red),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // )
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 30,
+                                vertical: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.add,
+                                    size: 17,
+                                    color: primaryColor,
+                                  ),
+                                  Text(
+                                    'ADD',
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                ],
+                              ),
+                            )
                           ]),
                     ),
                   ],
