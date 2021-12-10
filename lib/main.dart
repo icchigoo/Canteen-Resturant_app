@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
             builder: (context, snapShot) {
               if (snapShot.hasData) {
                 // ignore: prefer_const_constructors
-                // return HomeScreen();
+                return HomeScreen();
               }
               return SignIn();
             }),

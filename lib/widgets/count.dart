@@ -25,7 +25,7 @@ class Count extends StatefulWidget {
 }
 
 class _CountState extends State<Count> {
-  int count = 0;
+  int count = 1;
   bool isTrue = false;
 
   getAddAndQuantity() {

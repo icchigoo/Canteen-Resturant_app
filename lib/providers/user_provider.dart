@@ -1,3 +1,4 @@
+import 'package:canteen_app/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -23,27 +24,27 @@ class UserProvider with ChangeNotifier {
     );
   }
 
-//   UserModel currentData;
+  late UserModel currentData;
 
-//   void getUserData() async {
-//     UserModel userModel;
-//     var value = await FirebaseFirestore.instance
-//         .collection("usersData")
-//         .doc(FirebaseAuth.instance.currentUser.uid)
-//         .get();
-//     if (value.exists) {
-//       userModel = UserModel(
-//         userEmail: value.get("userEmail"),
-//         userImage: value.get("userImage"),
-//         userName: value.get("userName"),
-//         userUid: value.get("userUid"),
-//       );
-//       currentData = userModel;
-//       notifyListeners();
-//     }
-//   }
+  void getUserData() async {
+    UserModel userModel;
+    var value = await FirebaseFirestore.instance
+        .collection("usersData")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    if (value.exists) {
+      userModel = UserModel(
+        userEmail: value.get("userEmail"),
+        userImage: value.get("userImage"),
+        userName: value.get("userName"),
+        userUid: value.get("userUid"),
+      );
+      currentData = userModel;
+      notifyListeners();
+    }
+  }
 
-//   UserModel get currentUserData {
-//     return currentData;
-//   }
+  UserModel get currentUserData {
+    return currentData;
+  }
 }

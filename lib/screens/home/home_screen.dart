@@ -3,6 +3,8 @@
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/product_overview/product_overview.dart';
 import 'package:canteen_app/providers/product_provider.dart';
+import 'package:canteen_app/providers/user_provider.dart';
+import 'package:canteen_app/review_cart/review_cart.dart';
 import 'package:canteen_app/screens/home/drawer_side.dart';
 import 'package:canteen_app/screens/home/singal_product.dart';
 import 'package:canteen_app/search/search.dart';
@@ -216,6 +218,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     productProvider = Provider.of(context);
+    UserProvider userProvider = Provider.of(context);
+    userProvider.getUserData();
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(
@@ -250,10 +254,23 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: CircleAvatar(
-              backgroundColor: primaryColor,
-              radius: 12,
-              child: Icon(Icons.camera, size: 17, color: textColor),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ReviewCart(),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                backgroundColor: primaryColor,
+                radius: 12,
+                child: Icon(
+                  Icons.shop,
+                  size: 17,
+                  color: textColor,
+                ),
+              ),
             ),
           ),
         ],
