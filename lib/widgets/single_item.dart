@@ -149,7 +149,7 @@ class SingleItem extends StatelessWidget {
                               SizedBox(
                                 height: 3,
                               ),
-                              wishList == false
+                              wishList == true
                                   ? Container(
                                       height: 25,
                                       width: 70,
