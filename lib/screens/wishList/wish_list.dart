@@ -34,7 +34,7 @@ class _WishListState extends State<WishList> {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("WishList Product"),
-      content: Text("Are you devete on WishList Product?"),
+      content: Text("Are you sure on to cancel WishList Product?"),
       actions: [
         cancelButton,
         continueButton,
@@ -80,6 +80,7 @@ class _WishListState extends State<WishList> {
                 productprice: data.productPrice,
                 productId: data.productId,
                 productQuantity: data.productQuantity,
+                //    productUnit: data.productName,
                 onDelete: () {
                   showAlertDialog(context, data);
                 },

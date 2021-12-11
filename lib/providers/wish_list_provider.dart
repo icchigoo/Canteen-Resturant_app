@@ -4,13 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
 class WishListProvider with ChangeNotifier {
-  void addWishListData({
-    required String wishListId,
-    required String wishListName,
-    required String wishListImage,
-    required int wishListPrice,
-    required String wishListQuantity,
-  }) async {
+  void addWishListData(
+      {required String wishListId,
+      required String wishListName,
+      required String wishListImage,
+      required int wishListPrice,
+      required int wishListQuantity,
+      var wishListUnit}) {
     FirebaseFirestore.instance
         .collection("WishList")
         .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -24,6 +24,7 @@ class WishListProvider with ChangeNotifier {
         "wishListPrice": wishListPrice,
         "wishQuantity": wishListQuantity,
         "wishList": true,
+        "wishListUnit": wishListUnit,
       },
     );
   }
@@ -46,6 +47,8 @@ class WishListProvider with ChangeNotifier {
           productName: element.get("wishListName"),
           productPrice: element.get("wishListPrice"),
           productQuantity: element.get("wishListQuantity"),
+          //  productUnit: element.get("wishListUnit")
+          // productUnit: []
         );
         newList.add(productModel);
       },
