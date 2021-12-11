@@ -78,6 +78,7 @@ class _SearchState extends State<Search> {
                 productName: data.productName,
                 prodcutImage: data.productImage,
                 onDelete: () {},
+                productUnit: null,
               );
             }).toList(),
           )

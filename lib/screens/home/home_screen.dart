@@ -76,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
+                  productUnit: todayproductData,
                 );
               },
             ).toList(),
@@ -138,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
+                  productUnit: todayproductData,
                 );
               },
             ).toList(),
@@ -200,6 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
+                  productUnit: todayproductData,
                 );
               },
             ).toList(),

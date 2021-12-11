@@ -127,7 +127,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                         wishListImage: widget.productImage,
                         wishListName: widget.productName,
                         wishListPrice: widget.productPrice,
-                        wishListQuantity: widget.productQuantity);
+                        wishListQuantity: 2);
                   } else {
                     wishListProvider.deleteWishtList(widget.productId);
                   }
@@ -216,6 +216,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                               productImage: widget.productImage,
                               productName: widget.productName,
                               productPrice: widget.productPrice,
+                              productUnit: "",
                             ),
                             // Container(
                             //   padding: EdgeInsets.symmetric(

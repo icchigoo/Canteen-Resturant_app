@@ -2,6 +2,7 @@
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
+import 'package:canteen_app/widgets/product_unit.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,8 @@ class SingleItem extends StatefulWidget {
   bool wishList = false;
   int productQuantity;
   VoidCallback onDelete;
+  // ignore: prefer_typing_uninitialized_variables
+  var productUnit;
 
   SingleItem({
     required this.isBool,
@@ -27,6 +30,7 @@ class SingleItem extends StatefulWidget {
     required this.wishList,
     required this.productQuantity,
     required this.onDelete,
+    required this.productUnit,
   });
 
   @override
@@ -135,7 +139,7 @@ class _SingleItemState extends State<SingleItem> {
                                   children: [
                                     Expanded(
                                       child: Text(
-                                        "chicken",
+                                        "Hello from single_item",
                                         style: TextStyle(
                                           color: textColor,
                                           fontSize: 14,
@@ -153,7 +157,7 @@ class _SingleItemState extends State<SingleItem> {
                                 ),
                               ),
                             )
-                          : Text("1 plate")
+                          : Text(widget.productUnit)
                     ],
                   ),
                 ),
@@ -172,6 +176,7 @@ class _SingleItemState extends State<SingleItem> {
                           productImage: widget.prodcutImage,
                           productName: widget.productName,
                           productPrice: widget.productprice,
+                          productUnit: null,
                         )
                       : Padding(
                           padding: const EdgeInsets.only(top: 8),

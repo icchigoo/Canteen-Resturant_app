@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/models/product_model.dart';
 
 import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,12 +14,15 @@ class Count extends StatefulWidget {
   late String productImage;
   late String productId;
   late int productPrice;
+  // ignore: prefer_typing_uninitialized_variables
+  var productUnit;
 
   Count(
       {required this.productName,
       required this.productImage,
       required this.productId,
-      required this.productPrice});
+      required this.productPrice,
+      required this.productUnit});
 
   @override
   _CountState createState() => _CountState();
@@ -86,6 +90,7 @@ class _CountState extends State<Count> {
                           cartName: widget.productName,
                           cartPrice: widget.productPrice,
                           cartQuantity: count,
+                          //  productUnit: unitData == null?firstValue : unitData,
                         );
                       }
                     },
@@ -113,6 +118,7 @@ class _CountState extends State<Count> {
                         cartName: widget.productName,
                         cartPrice: widget.productPrice,
                         cartQuantity: count,
+                        // cartUnit: widget.productUnit
                       );
                     },
                     child: Icon(
@@ -130,13 +136,14 @@ class _CountState extends State<Count> {
                       isTrue = true;
                     });
                     reviewCarProvider.addReviewCartData(
-                      cartId: widget.productId,
-                      cartImage: widget.productImage,
-                      cartName: widget.productName,
-                      cartPrice: widget.productPrice,
-                      cartQuantity: count,
-                      // isAdd: true,
-                    );
+                        cartId: widget.productId,
+                        cartImage: widget.productImage,
+                        cartName: widget.productName,
+                        cartPrice: widget.productPrice,
+                        cartQuantity: count,
+                        cartUnit: widget.productUnit
+                        // isAdd: true,
+                        );
                   },
                   child: Text(
                     "Add",

@@ -13,6 +13,7 @@ class ProductProvider with ChangeNotifier {
       productName: element.get("productName"),
       productImage: element.get("productImage"),
       productId: element.get("productId"),
+      productUnit: element.get("productUnit"),
       productQuantity: 0,
     );
 
