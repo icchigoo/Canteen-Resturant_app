@@ -74,16 +74,16 @@ class _WishListState extends State<WishList> {
                 height: 10,
               ),
               SingleItem(
-                wishList: false,
                 isBool: true,
                 prodcutImage: data.productImage,
                 productName: data.productName,
                 productprice: data.productPrice,
                 productId: data.productId,
-                // productQuantity: data.productQuantity,
+                productQuantity: data.productQuantity,
                 onDelete: () {
                   showAlertDialog(context, data);
                 },
+                wishList: false,
               ),
             ],
           );

@@ -7,7 +7,7 @@ import 'package:canteen_app/widgets/single_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// ignore: use_key_in_widget_constructors
+// ignore: use_key_in_widget_constructors, must_be_immutable
 class ReviewCart extends StatelessWidget {
   late ReviewCartProvider reviewCartProvider;
   showAlertDialog(BuildContext context, ReviewCartModel delete) {
@@ -29,7 +29,7 @@ class ReviewCart extends StatelessWidget {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Cart Product"),
-      content: Text("are you devete on cartProduct "),
+      content: Text("are you sure you want to cancel cartProduct "),
       actions: [
         cancelButton,
         continueButton,
@@ -98,7 +98,7 @@ class ReviewCart extends StatelessWidget {
                       productName: data.cartName,
                       productprice: data.cartPrice,
                       productId: data.cartId,
-                      // productQuantity: data.cartQuantity,
+                      productQuantity: data.cartQuantity,
                       onDelete: () {
                         showAlertDialog(context, data);
                       },

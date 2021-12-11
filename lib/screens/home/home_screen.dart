@@ -67,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           productPrice: todayproductData.productPrice,
                           productName: todayproductData.productName,
                           productImage: todayproductData.productImage,
+                          productQuantity: "",
                         ),
                       ),
                     );
@@ -128,6 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           productPrice: todayproductData.productPrice,
                           productName: todayproductData.productName,
                           productImage: todayproductData.productImage,
+                          productQuantity: "",
                         ),
                       ),
                     );
@@ -185,6 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
+                          productQuantity: "",
                           productId: todayproductData.productId,
                           productPrice: todayproductData.productPrice,
                           productName: todayproductData.productName,

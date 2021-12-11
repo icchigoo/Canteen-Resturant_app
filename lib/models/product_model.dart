@@ -3,10 +3,10 @@ class ProductModel {
   String productImage;
   int productPrice;
   String productId;
-  //int productQuantity;
+  int productQuantity;
   // List<dynamic>productUnit;
   ProductModel(
-      { //required this.productQuantity,
+      {required this.productQuantity,
       required this.productId,
       // required this.productUnit,
       required this.productImage,

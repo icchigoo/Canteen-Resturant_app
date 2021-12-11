@@ -20,7 +20,7 @@ class ProductOverview extends StatefulWidget {
   final String productName;
   final String productImage;
   final int productPrice;
-  // final String productQuantity;
+  final String productQuantity;
   final String productId;
   // ignore: use_key_in_widget_constructors, prefer_const_constructors_in_immutables
   ProductOverview({
@@ -28,8 +28,10 @@ class ProductOverview extends StatefulWidget {
     required this.productName,
     required this.productPrice,
     required this.productId,
-    // required this.productQuantity,
+    required this.productQuantity,
   });
+
+  // get productQuantity => null;
 
   @override
   _ProductOverviewState createState() => _ProductOverviewState();
@@ -125,7 +127,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                         wishListImage: widget.productImage,
                         wishListName: widget.productName,
                         wishListPrice: widget.productPrice,
-                        wishListQuantity: 2);
+                        wishListQuantity: widget.productQuantity);
                   } else {
                     wishListProvider.deleteWishtList(widget.productId);
                   }
