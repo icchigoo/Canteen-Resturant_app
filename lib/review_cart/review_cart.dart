@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/delivery_details/delivery_details.dart';
 import 'package:canteen_app/models/review_cart_model.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:canteen_app/widgets/single_item.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 // ignore: use_key_in_widget_constructors, must_be_immutable
@@ -54,7 +56,7 @@ class ReviewCart extends StatelessWidget {
       bottomNavigationBar: ListTile(
         title: Text("Total Amount"),
         subtitle: Text(
-          "Rs 1100",
+          "\$ ${reviewCartProvider.getTotalPrice()}",
           style: TextStyle(
             color: Colors.green[900],
           ),
@@ -65,9 +67,20 @@ class ReviewCart extends StatelessWidget {
           child: MaterialButton(
             child: Text("Submit"),
             color: primaryColor,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            onPressed: () {},
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            onPressed: () {
+              if (reviewCartProvider.getReviewCartDataList.isEmpty) {
+                // this need to be fixed as return is not working !!
+                Fluttertoast.showToast(msg: "No cart Data Found");
+              }
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => DeliveryDetails(),
+                ),
+              );
+            },
           ),
         ),
       ),

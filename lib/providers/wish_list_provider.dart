@@ -42,14 +42,14 @@ class WishListProvider with ChangeNotifier {
     value.docs.forEach(
       (element) {
         ProductModel productModel = ProductModel(
-          productId: element.get("wishListId"),
-          productImage: element.get("wishListImage"),
-          productName: element.get("wishListName"),
-          productPrice: element.get("wishListPrice"),
-          productQuantity: element.get("wishListQuantity"),
-          //  productUnit: element.get("wishListUnit")
-          // productUnit: []
-        );
+            productId: element.get("wishListId"),
+            productImage: element.get("wishListImage"),
+            productName: element.get("wishListName"),
+            productPrice: element.get("wishListPrice"),
+            productQuantity: element.get("wishListQuantity"),
+            productUnit: element.get("wishListUnit")
+            // productUnit: element.get("wish")
+            );
         newList.add(productModel);
       },
     );
