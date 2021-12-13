@@ -1,38 +1,38 @@
-import 'package:canteen_app/models/review_cart_model.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class OrderItem extends StatelessWidget {
-  final ReviewCartModel e;
-  // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
-  OrderItem({required this.e});
+  // final ReviewCartModel e;
+  late bool isTrue;
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: Image.network(
-        e.cartImage,
+        "https://assets.stickpng.com/images/580b57fcd9996e24bc43c1e9.png",
         width: 60,
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            e.cartName,
+            "food name",
             style: TextStyle(
               color: Colors.grey[600],
             ),
           ),
           Text(
-            e.cartUnit,
+            "Small",
             style: TextStyle(
               color: Colors.grey[600],
             ),
           ),
           Text(
-            "\$${e.cartPrice}",
+            "\$30",
           ),
         ],
       ),
-      subtitle: Text(e.cartQuantity.toString()),
+      subtitle: Text("5"),
     );
   }
 }

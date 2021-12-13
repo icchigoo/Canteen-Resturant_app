@@ -1,13 +1,25 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, must_be_immutable
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/delivery_details/add_delivery_address/add_delivery_address.dart';
 
 import 'package:canteen_app/delivery_details/single_delivery_item.dart';
+import 'package:canteen_app/payment_summary/payment_summary.dart';
 
 import 'package:flutter/material.dart';
 
 class DeliveryDetails extends StatelessWidget {
+  List<Widget> address = [
+    SingleDeliveryItem(
+      address:
+          "area, kathmandu/nepal, Baneshwor, street, 20, society 07, pincode 09777",
+      title: " Ajay Chhetri",
+      number: "100",
+      addressType: "Home",
+    ),
+  ];
+
+  bool isAddress = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +43,22 @@ class DeliveryDetails extends StatelessWidget {
 
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: MaterialButton(
-          child: Text("Add new Address"),
-          onPressed: () {},
+          child: address.isEmpty
+              ? Text("Add new Address")
+              : Text(("Payment Summary")),
+          onPressed: () {
+            address.isEmpty
+                ? Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => AddDeliverAddress(),
+                    ),
+                  )
+                : Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => PaymentSummary(),
+                    ),
+                  );
+          },
           color: primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
@@ -55,13 +81,16 @@ class DeliveryDetails extends StatelessWidget {
           ),
           Column(
             children: [
-              SingleDeliveryItem(
-                address:
-                    "area, kathmandu/nepal, Baneshwor, street, 20, society 07, pincode 09777",
-                title: " Ajay Chhetri",
-                number: "100",
-                addressType: "Home",
-              )
+              // ignore: unnecessary_null_comparison, prefer_if_null_operators
+              address.isEmpty
+                  ? Container()
+                  : SingleDeliveryItem(
+                      address:
+                          "area, kathmandu/nepal, Baneshwor, street, 20, society 07, pincode 09777",
+                      title: " Ajay Chhetri",
+                      number: "100",
+                      addressType: "Home",
+                    ),
             ],
           )
         ],

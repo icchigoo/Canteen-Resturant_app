@@ -1,8 +1,11 @@
-// ignore_for_file: prefer_const_constructors, constant_identifier_names
+// ignore_for_file: prefer_const_constructors, constant_identifier_names, unused_local_variable
 
 import 'package:canteen_app/config/colors.dart';
+import 'package:canteen_app/payment_summary/payment_summary.dart';
+import 'package:canteen_app/providers/check_out_provider.dart';
 import 'package:canteen_app/widgets/costom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddDeliverAddress extends StatefulWidget {
   @override
@@ -19,7 +22,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
   var myType = AddressTypes.Home;
   @override
   Widget build(BuildContext context) {
-    // CheckoutProvider checkoutProvider = Provider.of(context);
+    CheckoutProvider checkoutProvider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -31,7 +34,9 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         height: 48,
         child: MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            checkoutProvider.validator(context, myType);
+          },
           child: Text(
             "Add Address",
             style: TextStyle(
@@ -54,39 +59,47 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
           children: [
             CostomTextField(
               labText: "First name",
+              controller: checkoutProvider.firstName,
             ),
             CostomTextField(
               labText: "Last name",
+              controller: checkoutProvider.lastName,
             ),
             CostomTextField(
               labText: "Mobile No",
+              controller: checkoutProvider.mobileNo,
             ),
             CostomTextField(
               labText: "Alternate Mobile No",
+              controller: checkoutProvider.alternateMobileNo,
             ),
             CostomTextField(
-              labText: "Scoiety",
+              labText: "Society",
+              controller: checkoutProvider.society,
             ),
             CostomTextField(
-              labText: "Street",
-            ),
+                labText: "Street", controller: checkoutProvider.street),
             CostomTextField(
               labText: "Landmark",
+              controller: checkoutProvider.landmark,
             ),
             CostomTextField(
               labText: "City",
+              controller: checkoutProvider.city,
             ),
             CostomTextField(
               labText: "Aera",
+              controller: checkoutProvider.aera,
             ),
             CostomTextField(
               labText: "Pincode",
+              controller: checkoutProvider.pincode,
             ),
             InkWell(
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => AddDeliverAddress(),
+                    builder: (context) => PaymentSummary(),
                   ),
                 );
               },
