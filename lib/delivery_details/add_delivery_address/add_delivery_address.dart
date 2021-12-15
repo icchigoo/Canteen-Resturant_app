@@ -1,10 +1,12 @@
-// ignore_for_file: prefer_const_constructors, constant_identifier_names, unused_local_variable
+// ignore_for_file: prefer_const_constructors, constant_identifier_names, unused_local_variable, sized_box_for_whitespace, unnecessary_null_comparison
 
 import 'package:canteen_app/config/colors.dart';
-import 'package:canteen_app/payment_summary/payment_summary.dart';
+import 'package:canteen_app/delivery_details/google_map/google_map.dart';
+
 import 'package:canteen_app/providers/check_out_provider.dart';
 import 'package:canteen_app/widgets/costom_text_field.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 class AddDeliverAddress extends StatefulWidget {
@@ -22,6 +24,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
   var myType = AddressTypes.Home;
   @override
   Widget build(BuildContext context) {
+    // var addressType = AddressTypes.Home==""
     CheckoutProvider checkoutProvider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -31,26 +34,29 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
         ),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        height: 48,
-        child: MaterialButton(
-          onPressed: () {
-            checkoutProvider.validator(context, myType);
-          },
-          child: Text(
-            "Add Address",
-            style: TextStyle(
-              color: textColor,
-            ),
-          ),
-          color: primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              30,
-            ),
-          ),
-        ),
-      ),
+          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          height: 48,
+          child: checkoutProvider.isloadding == false
+              ? MaterialButton(
+                  onPressed: () {
+                    checkoutProvider.validator(context, myType);
+                  },
+                  child: Text(
+                    "Add Address",
+                    style: TextStyle(
+                      color: textColor,
+                    ),
+                  ),
+                  color: primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      30,
+                    ),
+                  ),
+                )
+              : Center(
+                  child: CircularProgressIndicator(),
+                )),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 20,
@@ -99,7 +105,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => PaymentSummary(),
+                    builder: (context) => CostomGoogleMap(),
                   ),
                 );
               },
@@ -111,7 +117,9 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Text("Set Location"),
+                    checkoutProvider.setLoaction == null
+                        ? Text("Set Loaction")
+                        : Text("Done!"),
                   ],
                 ),
               ),
