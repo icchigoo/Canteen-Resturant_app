@@ -3,6 +3,7 @@
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/delivery_details/delivery_details.dart';
 import 'package:canteen_app/models/review_cart_model.dart';
+import 'package:canteen_app/payment_summary/payment_summary.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:canteen_app/widgets/single_item.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,7 @@ class ReviewCart extends StatelessWidget {
               }
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => DeliveryDetails(),
+                  builder: (context) => PaymentSummary(),
                 ),
               );
             },

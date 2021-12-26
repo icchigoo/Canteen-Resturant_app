@@ -1,27 +1,24 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, must_be_immutable
-
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/delivery_details/add_delivery_address/add_delivery_address.dart';
-
 import 'package:canteen_app/delivery_details/single_delivery_item.dart';
+import 'package:canteen_app/models/delivery_address_model.dart';
 import 'package:canteen_app/payment_summary/payment_summary.dart';
-
+import 'package:canteen_app/providers/check_out_provider.dart';
 import 'package:flutter/material.dart';
 
-class DeliveryDetails extends StatelessWidget {
-  List<Widget> address = [
-    SingleDeliveryItem(
-      address:
-          "area, kathmandu/nepal, Baneshwor, street, 20, society 07, pincode 09777",
-      title: " Ajay Chhetri",
-      number: "100",
-      addressType: "Home",
-    ),
-  ];
+import 'package:provider/provider.dart';
 
-  bool isAddress = false;
+class DeliveryDetails extends StatefulWidget {
+  @override
+  _DeliveryDetailsState createState() => _DeliveryDetailsState();
+}
+
+class _DeliveryDetailsState extends State<DeliveryDetails> {
+  late DeliveryAddressModel value;
   @override
   Widget build(BuildContext context) {
+    CheckoutProvider deliveryAddressProvider = Provider.of(context);
+    deliveryAddressProvider.getDeliveryAddressData();
     return Scaffold(
       appBar: AppBar(
         title: Text("Delivery Details"),
@@ -40,14 +37,13 @@ class DeliveryDetails extends StatelessWidget {
       bottomNavigationBar: Container(
         // width: 160,
         height: 48,
-
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: MaterialButton(
-          child: address.isEmpty
+          child: deliveryAddressProvider.getDeliveryAddressList.isEmpty
               ? Text("Add new Address")
-              : Text(("Payment Summary")),
+              : Text("Payment Summary"),
           onPressed: () {
-            address.isEmpty
+            deliveryAddressProvider.getDeliveryAddressList.isEmpty
                 ? Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => AddDeliverAddress(),
@@ -55,7 +51,9 @@ class DeliveryDetails extends StatelessWidget {
                   )
                 : Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => PaymentSummary(),
+                      builder: (context) => PaymentSummary(
+                          //    deliverAddressList: value,
+                          ),
                     ),
                   );
           },
@@ -71,28 +69,37 @@ class DeliveryDetails extends StatelessWidget {
         children: [
           ListTile(
             title: Text("Deliver To"),
-            leading: Image.asset(
-              "assets/location.png",
-              height: 30,
-            ),
           ),
           Divider(
             height: 1,
           ),
-          Column(
-            children: [
-              // ignore: unnecessary_null_comparison, prefer_if_null_operators
-              address.isEmpty
-                  ? Container()
-                  : SingleDeliveryItem(
-                      address:
-                          "area, kathmandu/nepal, Baneshwor, street, 20, society 07, pincode 09777",
-                      title: " Ajay Chhetri",
-                      number: "100",
-                      addressType: "Home",
+          deliveryAddressProvider.getDeliveryAddressList.isEmpty
+              ? Center(
+                  child: Container(
+                    child: Center(
+                      child: Text("No Data"),
                     ),
-            ],
-          )
+                  ),
+                )
+              : Column(
+                  children: deliveryAddressProvider.getDeliveryAddressList
+                      .map<Widget>((e) {
+                    setState(() {
+                      value = e;
+                    });
+                    return SingleDeliveryItem(
+                      address:
+                          "aera, ${e.aera}, street, ${e.street}, society ${e.scoirty}, pincode ${e.pinCode}",
+                      title: "${e.firstName} ${e.lastName}",
+                      number: e.mobileNo,
+                      addressType: e.addressType == "AddressTypes.Home"
+                          ? "Home"
+                          : e.addressType == "AddressTypes.Other"
+                              ? "Other"
+                              : "Work",
+                    );
+                  }).toList(),
+                )
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:canteen_app/auth/sign_in.dart';
 import 'package:canteen_app/config/colors.dart';
+
 import 'package:canteen_app/providers/check_out_provider.dart';
 import 'package:canteen_app/providers/product_provider.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
             builder: (context, snapShot) {
               if (snapShot.hasData) {
                 // ignore: prefer_const_constructors
-                return HomeScreen();
+                  return HomeScreen();
               }
               return SignIn();
             }),
