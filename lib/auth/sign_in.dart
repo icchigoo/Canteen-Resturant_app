@@ -1,5 +1,5 @@
 //import 'package:canteen_app/google_sign_in.dart';
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:canteen_app/providers/user_provider.dart';
 import 'package:canteen_app/screens/home/home_screen.dart';
@@ -39,9 +39,9 @@ class _SignInState extends State<SignIn> {
       // print("signed in " + user.displayName);
 
       userProvider.addUserData(
-        currentUser: user,
+        currentUser: user!,
         // userEmail: user!.email,
-        userImage: user!.photoURL,
+        userImage: user.photoURL,
         userName: user.displayName,
       );
 
