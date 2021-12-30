@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:canteen_app/login/login_page.dart';
 import 'package:canteen_app/route/routing_page.dart';
 import 'package:canteen_app/signup/components/signup_auth_provider.dart';
@@ -25,89 +27,97 @@ class _SignupPageState extends State<SignupPage> {
 
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                "Sign up",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Sign up",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Column(
-                children: [
-                  TextFormField(
-                    controller: fullName,
-                    decoration: InputDecoration(
-                      hintText: "Full name",
+                Column(
+                  children: [
+                    TextFormField(
+                      controller: fullName,
+                      decoration: InputDecoration(
+                        hintText: "Full name",
+                      ),
                     ),
-                  ),
-                  TextFormField(
-                    controller: emailAddress,
-                    decoration: InputDecoration(
-                      hintText: "Email address",
+                    TextFormField(
+                      controller: emailAddress,
+                      decoration: InputDecoration(
+                        hintText: "Email address",
+                      ),
                     ),
-                  ),
-                  TextFormField(
-                    obscureText: visibility,
-                    controller: password,
-                    decoration: InputDecoration(
-                      hintText: "Password",
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            visibility = !visibility;
-                          });
-                        },
-                        icon: Icon(
-                          visibility ? Icons.visibility_off : Icons.visibility,
+                    TextFormField(
+                      obscureText: visibility,
+                      controller: password,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              visibility = !visibility;
+                            });
+                          },
+                          icon: Icon(
+                            visibility
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  signupAuthProvider.loading == false
-                      ? MyButton(
-                          onPressed: () {
-                            signupAuthProvider.signupVaidation(
-                              fullName: fullName,
+                  ],
+                ),
+                Column(
+                  children: [
+                    signupAuthProvider.loading == false
+                        ? MyButton(
+                            onPressed: () {
+                              signupAuthProvider.signupVaidation(
+                                fullName: fullName,
+                                context: context,
+                                emailAdress: emailAddress,
+                                password: password,
+                              );
+                            },
+                            text: "SIGN UP",
+                          )
+                        : Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Already have an account?\t\t"),
+                        GestureDetector(
+                          onTap: () {
+                            RoutingPage.goTonext(
                               context: context,
-                              emailAdress: emailAddress,
-                              password: password,
+                              navigateTo: LoginPage(),
                             );
                           },
-                          text: "SIGN UP",
+                          child: Text("LOGIN"),
                         )
-                      : Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Already have an account?\t\t"),
-                      GestureDetector(
-                        onTap: () {
-                          RoutingPage.goTonext(
-                            context: context,
-                            navigateTo: LoginPage(),
-                          );
-                        },
-                        child: Text("LOGIN"),
-                      )
-                    ],
-                  )
-                ],
-              )
-            ],
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

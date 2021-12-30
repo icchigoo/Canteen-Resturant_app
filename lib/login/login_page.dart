@@ -27,39 +27,45 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            // top part/
-            TopPart(),
-            // center part
-            CenterPart(
-              email: email,
-              password: password,
-              obscureText: visible,
-              onPressed: () {
-                setState(() {
-                  visible = !visible;
-                });
-              },
-              icon: Icon(
-                visible ? Icons.visibility_off : Icons.visibility,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/register.png'), fit: BoxFit.cover),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              // top part/
+              TopPart(),
+              // center part
+              CenterPart(
+                email: email,
+                password: password,
+                obscureText: visible,
+                onPressed: () {
+                  setState(() {
+                    visible = !visible;
+                  });
+                },
+                icon: Icon(
+                  visible ? Icons.visibility_off : Icons.visibility,
+                ),
               ),
-            ),
-            //end part
-            EndPart(
-              loading: loginAuthProvider.loading,
-              onPressed: () {
-                loginAuthProvider.loginPageVaidation(
-                  emailAdress: email,
-                  password: password,
-                  context: context,
-                );
-              },
-            ),
-          ],
+              //end part
+              EndPart(
+                loading: loginAuthProvider.loading,
+                onPressed: () {
+                  loginAuthProvider.loginPageVaidation(
+                    emailAdress: email,
+                    password: password,
+                    context: context,
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

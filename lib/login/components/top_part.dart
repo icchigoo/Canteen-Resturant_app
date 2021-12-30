@@ -16,7 +16,7 @@ class TopPart extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                "images/logo.jpg",
+                "images/logo1.png",
                 scale: 8,
               ),
             ),
