@@ -42,7 +42,7 @@ class WishListProvider with ChangeNotifier {
     value.docs.forEach(
       (element) {
         ProductModel productModel = ProductModel(
-            productId: element.get("wishListId"),
+            id: element.get("wishListId"),
             productImage: element.get("wishListImage"),
             productName: element.get("wishListName"),
             productPrice: element.get("wishListPrice"),

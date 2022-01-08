@@ -139,7 +139,7 @@ class _SingleItemState extends State<SingleItem> {
                                   children: [
                                     Expanded(
                                       child: Text(
-                                        "Hello from single_item",
+                                        "",
                                         style: TextStyle(
                                           color: textColor,
                                           fontSize: 14,
@@ -165,7 +165,7 @@ class _SingleItemState extends State<SingleItem> {
               Expanded(
                 child: Container(
                   height: 130,
-                  color: scaffoldBackgroundColor,
+                  color: Colors.white,
                   padding: widget.isBool == false
                       ? EdgeInsets.symmetric(horizontal: 30, vertical: 50)
                       : EdgeInsets.only(left: 5, right: 5),
@@ -283,7 +283,7 @@ class _SingleItemState extends State<SingleItem> {
             ? Container()
             : Divider(
                 height: 1,
-                color: Colors.black45,
+                color: Colors.white,
               )
       ],
     );

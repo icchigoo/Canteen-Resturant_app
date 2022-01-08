@@ -107,6 +107,7 @@ class _ProductOverviewState extends State<ProductOverview> {
     WishListProvider wishListProvider = Provider.of(context);
     getWishListBool();
     return Scaffold(
+        backgroundColor: Colors.white,
         bottomNavigationBar: Row(
           children: [
             bonntonNavigatorBar(
@@ -157,7 +158,7 @@ class _ProductOverviewState extends State<ProductOverview> {
         body: Column(
           children: [
             Expanded(
-              flex: 2,
+              flex: 0,
               // ignore: sized_box_for_whitespace
               child: Container(
                 width: double.infinity,
@@ -218,30 +219,6 @@ class _ProductOverviewState extends State<ProductOverview> {
                               productPrice: widget.productPrice,
                               productUnit: "",
                             ),
-                            // Container(
-                            //   padding: EdgeInsets.symmetric(
-                            //     horizontal: 30,
-                            //     vertical: 10,
-                            //   ),
-                            //   decoration: BoxDecoration(
-                            //     border: Border.all(color: Colors.grey),
-                            //     borderRadius: BorderRadius.circular(30),
-                            //   ),
-                            //   child: Row(
-                            //     mainAxisAlignment: MainAxisAlignment.center,
-                            //     children: [
-                            //       Icon(
-                            //         Icons.add,
-                            //         size: 17,
-                            //         color: primaryColor,
-                            //       ),
-                            //       Text(
-                            //         'ADD',
-                            //         style: TextStyle(color: Colors.red),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // )
                           ]),
                     ),
                   ],

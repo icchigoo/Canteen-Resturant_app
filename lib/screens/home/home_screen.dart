@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
                           // productQuantity: todayproductData.prof,
-                          productId: todayproductData.productId,
+                          productId: todayproductData.id,
                           productPrice: todayproductData.productPrice,
                           productName: todayproductData.productName,
                           productImage: todayproductData.productImage,
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  productId: todayproductData.productId,
+                  productId: todayproductData.id,
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
-                          productId: todayproductData.productId,
+                          productId: todayproductData.id,
                           productPrice: todayproductData.productPrice,
                           productName: todayproductData.productName,
                           productImage: todayproductData.productImage,
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  productId: todayproductData.productId,
+                  productId: todayproductData.id,
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(
                         builder: (context) => ProductOverview(
                           productQuantity: "",
-                          productId: todayproductData.productId,
+                          productId: todayproductData.id,
                           productPrice: todayproductData.productPrice,
                           productName: todayproductData.productName,
                           productImage: todayproductData.productImage,
@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  productId: todayproductData.productId,
+                  productId: todayproductData.id,
                   productprice: todayproductData.productPrice,
                   productImage: todayproductData.productImage,
                   productName: todayproductData.productName,
@@ -228,6 +228,8 @@ class _HomeScreenState extends State<HomeScreen> {
     UserProvider userProvider = Provider.of(context);
     userProvider.getUserData();
     return Scaffold(
+      // backgroundColor: Color(0xff0c0f14),
+      backgroundColor: Colors.white,
       drawer: DrawerSide(userProvider: userProvider),
       appBar: AppBar(
         iconTheme: IconThemeData(color: textColor),

@@ -26,6 +26,7 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Search"),
         actions: [
@@ -44,6 +45,7 @@ class _SearchState extends State<Search> {
             title: Text("Items"),
           ),
           Container(
+            color: Colors.white,
             height: 52,
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
@@ -72,7 +74,7 @@ class _SearchState extends State<Search> {
               return SingleItem(
                 wishList: true,
                 isBool: false,
-                productId: data.productId,
+                productId: data.id,
                 productQuantity: data.productQuantity,
                 productprice: data.productPrice,
                 productName: data.productName,

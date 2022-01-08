@@ -36,7 +36,6 @@ class _MyProfileState extends State<MyProfile> {
       backgroundColor: primaryColor,
       appBar: AppBar(
         elevation: 0.0,
-        // ignore: prefer_const_constructors
         title: Text(
           "My Profile",
           style: TextStyle(
@@ -123,8 +122,6 @@ class _MyProfileState extends State<MyProfile> {
                   listTile(
                       icon: Icons.file_copy_outlined,
                       title: "Terms & Conditions"),
-                  listTile(
-                      icon: Icons.policy_outlined, title: "Privacy Policy"),
                   listTile(icon: Icons.add_chart, title: "About"),
                   listTile(icon: Icons.exit_to_app_outlined, title: "Log Out"),
                 ],

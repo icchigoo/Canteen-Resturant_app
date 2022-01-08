@@ -26,7 +26,7 @@ class _WishListState extends State<WishList> {
     Widget continueButton = TextButton(
       child: Text("Yes"),
       onPressed: () {
-        wishListProvider.deleteWishtList(delete.productId);
+        wishListProvider.deleteWishtList(delete.id);
         Navigator.of(context).pop();
       },
     );
@@ -78,7 +78,7 @@ class _WishListState extends State<WishList> {
                 prodcutImage: data.productImage,
                 productName: data.productName,
                 productprice: data.productPrice,
-                productId: data.productId,
+                productId: data.id,
                 productQuantity: data.productQuantity,
                 productUnit: data.productName,
                 onDelete: () {

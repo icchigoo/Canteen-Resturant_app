@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:canteen_app/admin%20panel/Screen/dashboard.dart';
+import 'package:canteen_app/admin%20panel/providers/app_states.dart';
+import 'package:canteen_app/admin%20panel/providers/products_provider.dart';
 import 'package:canteen_app/auth/sign_in.dart';
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/login/components/login_auth_provider.dart';
@@ -51,6 +54,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CheckoutProvider>(
           create: (context) => CheckoutProvider(),
         ),
+        ChangeNotifierProvider<AppState>(
+          create: (context) => AppState(),
+        ),
+        ChangeNotifierProvider<ProductProviders>(
+          create: (context) => ProductProviders(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(
@@ -63,7 +72,7 @@ class MyApp extends StatelessWidget {
               if (snapShot.hasData) {
                 //  return HomeScreen();
               }
-              return SignIn();
+              return HomeScreen();
             }),
       ),
     );

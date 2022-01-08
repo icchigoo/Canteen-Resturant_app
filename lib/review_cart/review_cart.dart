@@ -54,6 +54,7 @@ class ReviewCart extends StatelessWidget {
     reviewCartProvider = Provider.of(context);
     reviewCartProvider.getReviewCartData();
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: ListTile(
         title: Text("Total Amount"),
         subtitle: Text(
