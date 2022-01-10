@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable, use_key_in_widget_constructors, override_on_non_overriding_member, annotate_overrides
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/user_provider.dart';
@@ -134,8 +134,7 @@ class _MyProfileState extends State<MyProfile> {
               radius: 50,
               backgroundColor: primaryColor,
               child: CircleAvatar(
-                backgroundImage: NetworkImage(userData.userImage ??
-                    "https://www.kindpng.com/picc/m/382-3826731_grab-food-logo-png-transparent-png.png"),
+                backgroundImage: NetworkImage(userData.userImage),
                 radius: 45,
                 backgroundColor: scaffoldBackgroundColor,
               ),

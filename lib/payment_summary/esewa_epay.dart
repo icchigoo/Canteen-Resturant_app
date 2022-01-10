@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_collection_literals, unused_field
+// ignore_for_file: prefer_collection_literals, unused_field, prefer_final_fields, use_key_in_widget_constructors, deprecated_member_use, prefer_const_constructors
 
 import 'dart:async';
 import 'dart:convert';
@@ -6,7 +6,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:webview_flutter/platform_interface.dart';
+
 import 'package:webview_flutter/webview_flutter.dart';
 
 class EsewaEpay extends StatefulWidget {

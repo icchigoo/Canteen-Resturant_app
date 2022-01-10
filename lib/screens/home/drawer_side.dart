@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable, use_key_in_widget_constructors
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/user_provider.dart';
@@ -55,8 +55,7 @@ class _DrawerSideState extends State<DrawerSide> {
                       child: CircleAvatar(
                         radius: 40,
                         backgroundColor: Colors.yellow,
-                        backgroundImage: NetworkImage(userData.userImage ??
-                            "https://www.kindpng.com/picc/m/382-3826731_grab-food-logo-png-transparent-png.png"),
+                        backgroundImage: NetworkImage(userData.userImage),
                       ),
                     ),
                     SizedBox(

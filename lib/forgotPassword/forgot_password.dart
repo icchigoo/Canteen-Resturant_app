@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:canteen_app/widgets/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 });
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MyButton(

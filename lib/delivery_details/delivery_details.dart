@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_unnecessary_containers
+
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/delivery_details/add_delivery_address/add_delivery_address.dart';
 import 'package:canteen_app/delivery_details/single_delivery_item.dart';
@@ -25,7 +27,7 @@ class _DeliveryDetailsState extends State<DeliveryDetails> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primaryColor,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(

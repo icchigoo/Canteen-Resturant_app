@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables
+
 import 'package:canteen_app/models/review_cart_model.dart';
 import 'package:flutter/material.dart';
 

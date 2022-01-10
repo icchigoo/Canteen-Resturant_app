@@ -3,7 +3,6 @@
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/payment_summary/esewa_epay.dart';
 
-import 'package:canteen_app/payment_summary/my_google_pay.dart';
 import 'package:canteen_app/payment_summary/order_item.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:flutter/material.dart';

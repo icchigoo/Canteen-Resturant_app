@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:canteen_app/config/colors.dart';
-import 'package:canteen_app/delivery_details/delivery_details.dart';
+
 import 'package:canteen_app/models/review_cart_model.dart';
 import 'package:canteen_app/payment_summary/payment_summary.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';

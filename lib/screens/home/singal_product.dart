@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_new
+// ignore_for_file: prefer_const_constructors, unnecessary_new, prefer_if_null_operators, use_key_in_widget_constructors, prefer_typing_uninitialized_variables
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/models/product_model.dart';
@@ -11,12 +11,12 @@ class SingalProduct extends StatefulWidget {
   final String productName;
   final int productprice;
   final String productId;
-  // ignore: prefer_typing_uninitialized_variables
+
   final ProductModel productUnit;
 
   final VoidCallback onTap;
 
-  SingalProduct(
+  const SingalProduct(
       {required this.productImage,
       required this.productName,
       required this.onTap,
@@ -83,7 +83,6 @@ class _SingalProductState extends State<SingalProduct> {
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          // ignore: prefer_if_null_operators
                           '${widget.productprice}\$/${unitData == null ? firstValue : unitData}',
                           style: TextStyle(
                             color: Colors.grey,
@@ -135,7 +134,6 @@ class _SingalProductState extends State<SingalProduct> {
                                     },
                                   );
                                 },
-                                // ignore: prefer_if_null_operators
                                 title: unitData == null ? firstValue : unitData,
                               ),
                             ),
@@ -149,7 +147,6 @@ class _SingalProductState extends State<SingalProduct> {
                               productImage: widget.productImage,
                               productName: widget.productName,
                               productPrice: widget.productprice,
-                              // ignore: prefer_if_null_operators
                               productUnit:
                                   unitData == null ? firstValue : unitData,
                             ),

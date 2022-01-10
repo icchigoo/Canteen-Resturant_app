@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unnecessary_import
 
 import 'package:canteen_app/config/colors.dart';
-import 'package:canteen_app/providers/product_provider.dart';
+
 import 'package:canteen_app/providers/wish_list_provider.dart';
 import 'package:canteen_app/review_cart/review_cart.dart';
-import 'package:canteen_app/screens/wishList/wish_list.dart';
+
 import 'package:canteen_app/widgets/count.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -8,7 +8,7 @@ import 'package:canteen_app/review_cart/review_cart.dart';
 import 'package:canteen_app/screens/home/drawer_side.dart';
 import 'package:canteen_app/screens/home/singal_product.dart';
 import 'package:canteen_app/search/search.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
