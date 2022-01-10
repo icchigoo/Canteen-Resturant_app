@@ -2,7 +2,7 @@
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/providers/review_cart_provider.dart';
-import 'package:canteen_app/widgets/product_unit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -82,7 +82,6 @@ class _SingleItemState extends State<SingleItem> {
                     children: [
                       Column(
                         children: [
-                          // ignore: prefer_const_constructors
                           Text(
                             widget.productName,
                             style: TextStyle(

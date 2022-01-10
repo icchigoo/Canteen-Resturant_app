@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, constant_identifier_names, unused_local_variable, sized_box_for_whitespace, unnecessary_null_comparison
+// ignore_for_file: prefer_const_constructors, constant_identifier_names, unused_local_variable, sized_box_for_whitespace, unnecessary_null_comparison, use_key_in_widget_constructors
 
 import 'package:canteen_app/config/colors.dart';
 import 'package:canteen_app/delivery_details/google_map/google_map.dart';

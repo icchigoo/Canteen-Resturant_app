@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
+
 import 'package:canteen_app/appColors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatefulWidget {
   final void Function()? onPressed;
   final String text;
-  MyButton({
+  const MyButton({
     required this.onPressed,
     required this.text,
   });
@@ -26,7 +28,7 @@ class _MyButtonState extends State<MyButton> {
       child: Ink(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
+            colors: const [
               AppColors.Kgradient1,
               AppColors.Kgradient2,
             ],

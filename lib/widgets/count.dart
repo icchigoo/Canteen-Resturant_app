@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable
 
 import 'package:canteen_app/config/colors.dart';
-import 'package:canteen_app/models/product_model.dart';
 
 import 'package:canteen_app/providers/review_cart_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,11 +17,13 @@ class Count extends StatefulWidget {
   var productUnit;
 
   Count(
-      {required this.productName,
+      {Key? key,
+      required this.productName,
       required this.productImage,
       required this.productId,
       required this.productPrice,
-      required this.productUnit});
+      required this.productUnit})
+      : super(key: key);
 
   @override
   _CountState createState() => _CountState();

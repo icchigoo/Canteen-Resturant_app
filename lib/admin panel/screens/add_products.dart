@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field, prefer_final_fields, avoid_print, unused_local_variable, unnecessary_new, prefer_const_constructors
+// ignore_for_file: unused_field, prefer_final_fields, avoid_print, unused_local_variable, unnecessary_new, prefer_const_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, deprecated_member_use, unused_element
 
 import 'dart:io';
 
